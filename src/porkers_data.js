@@ -1,4 +1,4 @@
-const hogs = [
+const hogsData = [
   {
     name: 'Mudblood',
     specialty: 'Mediocre magic',
@@ -92,4 +92,4 @@ const hogs = [
   }
 ];
 
-export default hogs;
+export default hogsData;
