@@ -3,7 +3,7 @@
 import React from 'react'
 
 const FilterHogs = props => {
-    const { toggleFilter, filterGreasedHogs} = props
+    const { toggleFilter, filterGreasedHogs } = props
     return (
         <div>
             <button onClick={toggleFilter} className='ui primary button' role='button'>

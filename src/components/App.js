@@ -15,7 +15,8 @@ class App extends Component {
       hogs: [],
       filterGreasedHogs: false,
       sortName: false,
-      sortWeight: false
+      sortWeight: false,
+      hogGifs : []
     }
   }
 
@@ -25,6 +26,18 @@ class App extends Component {
 
   componentDidMount() {
     this.getHogs()
+    this.getHogGifs()
+  }
+
+  async getHogGifs() {
+    const response = await fetch('https://api.tenor.com/v1/search?q=pig')
+    const json = await response.json()
+    const results = json.results
+    const hogsGifsUrls = results.map(r => r.media[0].gif.url)
+    // let counter = 0
+    // const newHogs = hogs.map(hog => {...hog, url: hogsGifsUrls[counter++]})
+    // console.log(newHogs)
+    this.setState({ hogGifs: hogsGifsUrls })
   }
 
   toggleFilter = () => {
@@ -81,7 +94,7 @@ class App extends Component {
   }
 
   render() {
-    const { filterGreasedHogs, sortName, sortWeight } = this.state
+    const { filterGreasedHogs, sortName, sortWeight, hogGifs } = this.state
     const { toggleFilter, toggleDetails, toggleName, toggleWeight, getFilteredAndSortedHogs } = this
     const filteredHogs = getFilteredAndSortedHogs()
     return (
@@ -97,7 +110,7 @@ class App extends Component {
             toggleName={toggleName}
             toggleWeight={toggleWeight}
           />
-          <HogList hogs={ filteredHogs } toggleDetails={ toggleDetails }/>
+        <HogList hogs={filteredHogs} toggleDetails={toggleDetails} hogGifs={hogGifs}/>
       </div>
     )
   }

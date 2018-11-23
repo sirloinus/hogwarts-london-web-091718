@@ -4,11 +4,11 @@ import React from 'react'
 // import Adapter from './Adapter'
 
 const Hog = props => {
-    const { hog, toggleDetails } = props
+    const { hog, toggleDetails, hogGifs } = props
     return (
         <div className='ui eight wide column'>
             <div className='ui card' onClick={() => toggleDetails(hog)}>
-                <img className='ui image' src='https://badicalindustries.files.wordpress.com/2009/04/little-big-pig-humor.jpg' />
+                <img className='ui image' src={hogGifs[Math.floor(Math.random() * hogGifs.length)]} />
                 <div className='content'>
                     <div className='header'>{hog.name}</div>
                     <div className=''>
