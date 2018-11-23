@@ -41,8 +41,9 @@ class App extends Component {
   }
 
   toggleFilter = () => {
-    const value = this.state.filterGreasedHogs === false ? true : false
-    this.setState({ filterGreasedHogs: value })
+    // const value = this.state.filterGreasedHogs === false ? true : false
+    // this.setState({ filterGreasedHogs: value })
+    this.setState({ filterGreasedHogs: !this.state.filterGreasedHogs })
   }
 
   getFilteredHogs = () => {
@@ -70,13 +71,15 @@ class App extends Component {
   }
 
   toggleName = () => {
-    const value = this.state.sortName === false ? true : false
-    this.setState({ sortName: value, sortWeight: !value })
+    // const value = this.state.sortName === false ? true : false
+    // this.setState({ sortName: value, sortWeight: !value })
+    this.setState({ sortName: !this.state.sortName, sortWeight: this.state.sortName})
   }
 
   toggleWeight = () => {
-    const value = this.state.sortWeight === false ? true : false
-    this.setState({ sortWeight: value, sortName: !value })
+    // const value = this.state.sortWeight === false ? true : false
+    // this.setState({ sortWeight: value, sortName: !value })
+    this.setState({ sortWeight: !this.state.sortWeight, sortName: this.state.sortName})
   }
 
   getFilteredAndSortedHogs = () => {

@@ -8,7 +8,7 @@ const HogList = props => {
     // let counter = 0
     return (
         <div className='ui grid container'>
-            {hogs.map(hog => <Hog hog={hog} toggleDetails={toggleDetails} hogGifs={hogGifs}/> )}
+            {hogs.map(hog => <Hog hog={hog} key={hog.name} toggleDetails={toggleDetails} hogGifs={hogGifs}/> )}
         </div>
     )
 }
